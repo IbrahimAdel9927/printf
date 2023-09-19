@@ -36,9 +36,13 @@ int kh_string(va_list **list)
 	char *str = va_arg(**list, char*);
 	int i = 0;
 
+<<<<<<< HEAD
 	if (!str)
 		return (putstr("(null)"));
 	while (str[i])
+=======
+	if (str == NULL)
+>>>>>>> c07e5f5e35b70747e50d935d4ff7159beae5d178
 	{
 		putch(str[i]);
 		i++;
