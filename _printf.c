@@ -27,6 +27,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
+			while (format[i] == ' ')
+				i++;
 			if (format[i] == '\0')
 				break;
 			coun += option(format[i], &list);
