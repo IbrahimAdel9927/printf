@@ -21,7 +21,10 @@ int kh_chaar(va_list **list)
 	char c = va_arg(**list, int);
 
 	if (c == '\0')
-		return (0);
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	write(1, &c, 1);
 	return (1);
 }
