@@ -36,14 +36,14 @@ int kh_string(va_list **list)
 	char *str = va_arg(**list, char*);
 	int i = 0;
 
-	while (str[i] != '\0')
-		i++;
-	write(1, str, i);
 	if (!str)
 	{
 		i = 6;
 		write(1, "(null)", i);
 	}
+	while (str[i] != '\0')
+		i++;
+	write(1, str, i);
 	return (i);
 }
 
