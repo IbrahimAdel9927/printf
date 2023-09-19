@@ -39,6 +39,11 @@ int kh_string(va_list **list)
 	while (str[i] != '\0')
 		i++;
 	write(1, str, i);
+	if (!str)
+	{
+		i = 6;
+		write(1, "(null)", i);
+	}
 	return (i);
 }
 
