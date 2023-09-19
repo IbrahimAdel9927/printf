@@ -13,39 +13,10 @@ int option(char s, va_list *list)
 	if (s == '%')
 		coun += kh_mod(s);
 	else if (s == 'c')
-		coun += kh_chaar(&list);
+		coun += kh_chaar(va_arg(*list, int));
 	else if (s == 's')
-		coun += kh_string(&list);
+		coun += kh_string(va_arg(*list, char *));
 	else if (s == 'i' || s == 'd')
 		coun += kh_integer(&list);
 	return (coun);
-}
-
-/**
- * putch - print a char
- * @c: the input
- * Return: int
-*/
-int putch(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
- * putstr - print a string
- * @str: the input
- * Return: int
-*/
-int putstr(char *str)
-{
-	int i = 0;
-
-	if (!str)
-		return (putstr("(null)"));
-	while (str[i])
-	{
-		putch(str[i]);
-		i++;
-	}
-	return (i);
 }

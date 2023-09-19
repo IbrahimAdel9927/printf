@@ -13,38 +13,28 @@ int kh_mod(char c)
 
 /**
  * kh_chaar - A function that prints char
- * @list: input
+ * @c: input
  * Return: int
 */
-int kh_chaar(va_list **list)
+int kh_chaar(char c)
 {
-	char c = va_arg(**list, int);
-
-	if (c == '\0')
-		return (6);
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 /**
  * kh_string - A function prints string
- * @list: input
+ * @str: input
  * Return: int
 */
-int kh_string(va_list **list)
+int kh_string(char *str)
 {
-	char *str = va_arg(**list, char*);
 	int i = 0;
 
-<<<<<<< HEAD
 	if (!str)
-		return (putstr("(null)"));
+		return (kh_string("(null)"));
 	while (str[i])
-=======
-	if (str == NULL)
->>>>>>> c07e5f5e35b70747e50d935d4ff7159beae5d178
 	{
-		putch(str[i]);
+		kh_chaar(str[i]);
 		i++;
 	}
 	return (i);
