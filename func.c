@@ -20,8 +20,11 @@ int kh_chaar(va_list *list)
 {
 	char c = va_arg(*list, int);
 
-	write(1, &c, 1);
-	return (1);
+	if (c != '\0')
+	{
+		write(1, &c, 1);
+		return (1);
+	}
 }
 
 /**
