@@ -13,14 +13,16 @@ int _printf(const char *format, ...)
 {
 	int i = 0, coun = 0;
 	va_list list;
-
 	if (!format)
 		return (-1);
 	va_start(list, format);
 	while (format && format[i])
 	{
 		if (format[i] != '%')
+		{
 			write(1, &format[i], 1);
+			coun++;
+		}
 		else
 		{
 			i++;
@@ -32,6 +34,8 @@ int _printf(const char *format, ...)
 				coun += kh_chaar(&list);
 			else if (format[i] == 's')
 				coun += kh_string(&list);
+			else if (format[i] == 'i' || format[i] == 'd')
+				coun += kh_integer(&list);
 		}
 		i++;
 	}
