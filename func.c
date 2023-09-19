@@ -36,7 +36,7 @@ int kh_string(va_list **list)
 	char *str = va_arg(**list, char*);
 	int i = 0;
 
-	if (!str)
+	if (str == NULL)
 	{
 		i = 6;
 		write(1, "(null)", i);
