@@ -37,15 +37,11 @@ int kh_string(va_list **list)
 	int i = 0;
 
 	if (!str)
+		return (putstr("(null)"));
+	while (str[i])
 	{
-		i = 6;
-		write(1, "(null)", i);
-	}
-	else
-	{
-		while (str[i] != '\0')
-			i++;
-		write(1, str, i);
+		putch(str[i]);
+		i++;
 	}
 	return (i);
 }

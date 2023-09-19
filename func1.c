@@ -20,3 +20,32 @@ int option(char s, va_list *list)
 		coun += kh_integer(&list);
 	return (coun);
 }
+
+/**
+ * putch - print a char
+ * @c: the input
+ * Return: int
+*/
+int putch(char c)
+{
+	return (write(1, &c, 1));
+}
+
+/**
+ * putstr - print a string
+ * @str: the input
+ * Return: int
+*/
+int putstr(char *str)
+{
+	int i = 0;
+
+	if (!str)
+		return (putstr("(null)"));
+	while (str[i])
+	{
+		putch(str[i]);
+		i++;
+	}
+	return (i);
+}
