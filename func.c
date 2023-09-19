@@ -19,12 +19,11 @@ int kh_mod(char c)
 int kh_chaar(va_list **list)
 {
 	char c = va_arg(**list, int);
-	int i = 1;
 
-	write(1, &c, 1);
 	if (c == '\0')
-		i = 0;
-	return (i);
+		return (0);
+	write(1, &c, 1);
+	return (1);
 }
 
 /**
