@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 {
 	int i = 0, coun = 0;
 	va_list list;
+
 	if (!format)
 		return (-1);
 	va_start(list, format);
