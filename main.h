@@ -10,9 +10,10 @@
 
 int _printf(const char *format, ...);
 int kh_mod(char c);
-int kh_chaar(va_list *list);
-int kh_string(va_list *list);
+int kh_chaar(va_list **list);
+int kh_string(va_list **list);
 int int_ma(int d, int a, int k);
-int kh_integer(va_list *list);
+int kh_integer(va_list **list);
+int option(char s, va_list *list);
 
 #endif/*the_end*/

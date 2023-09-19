@@ -29,14 +29,7 @@ int _printf(const char *format, ...)
 			i++;
 			if (format[i] == '\0')
 				break;
-			else if (format[i] == '%')
-				coun += kh_mod(format[i]);
-			else if (format[i] == 'c')
-				coun += kh_chaar(&list);
-			else if (format[i] == 's')
-				coun += kh_string(&list);
-			else if (format[i] == 'i' || format[i] == 'd')
-				coun += kh_integer(&list);
+			coun += option(format[i], &list);
 		}
 		i++;
 	}

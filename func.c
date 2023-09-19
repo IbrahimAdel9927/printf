@@ -16,15 +16,15 @@ int kh_mod(char c)
  * @list: input
  * Return: int
 */
-int kh_chaar(va_list *list)
+int kh_chaar(va_list **list)
 {
-	char c = va_arg(*list, int);
+	char c = va_arg(**list, int);
+	int i = 1;
 
-	if (c != '\0')
-	{
-		write(1, &c, 1);
-		return (1);
-	}
+	write(1, &c, 1);
+	if (c == '\0')
+		i = 0;
+	return (i);
 }
 
 /**
@@ -32,9 +32,9 @@ int kh_chaar(va_list *list)
  * @list: input
  * Return: int
 */
-int kh_string(va_list *list)
+int kh_string(va_list **list)
 {
-	char *str = va_arg(*list, char*);
+	char *str = va_arg(**list, char*);
 	int i = 0;
 
 	while (str[i] != '\0')
@@ -83,9 +83,9 @@ int int_ma(int d, int a, int k)
  * @list: the input
  * Return: int
 */
-int kh_integer(va_list *list)
+int kh_integer(va_list **list)
 {
-	int a = va_arg(*list, int);
+	int a = va_arg(**list, int);
 	int k = 0, i = 0, d = 1000000000;
 	char c = 48;
 
