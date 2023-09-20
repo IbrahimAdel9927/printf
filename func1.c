@@ -24,6 +24,12 @@ int option(char s, va_list *list)
 		coun += kh_revstr(va_arg(*list, char *));
 	else if (s == 'u')
 		coun += kh_uint(&list);
+	else if (s == 'o')
+		coun += kh_oct(&list);
+	else if (s == 'x')
+		coun += kh_hex(&list);
+	else if (s == 'X')
+		coun += kh_HEX(&list);
 	return (coun);
 }
 
