@@ -18,5 +18,6 @@ int option(char s, va_list *list);
 int putch(char c);
 int putstr(char *str);
 int kh_binary(va_list **list);
+int kh_revstr(char *str);
 
 #endif/*the_end*/

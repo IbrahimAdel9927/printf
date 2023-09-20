@@ -20,6 +20,8 @@ int option(char s, va_list *list)
 		coun += kh_integer(&list);
 	else if (s == 'b')
 		coun += kh_binary(&list);
+	else if (s == 'r')
+		coun += kh_revstr(va_arg(*list, char *));
 	return (coun);
 }
 
@@ -54,3 +56,26 @@ int kh_binary(va_list **list)
 		return (i);
 	}
 }
+
+/**
+ * kh_revstr - A function that prints the reverse of string
+ * @str: input
+ * Return: int
+*/
+
+int kh_revstr(char *str)
+{
+	int i = 0, coun = 0;
+
+	if (!str)
+		return (kh_string("(null)"));
+	while (str[i] != '\0')
+		i++;
+	while (--i)
+	{
+		write(1, &str[i], 1);
+		coun++;
+	}
+	return (coun);
+}
+
