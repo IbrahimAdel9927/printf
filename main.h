@@ -17,5 +17,6 @@ int kh_integer(va_list **list);
 int option(char s, va_list *list);
 int putch(char c);
 int putstr(char *str);
+int kh_binary(va_list **list);
 
 #endif/*the_end*/

@@ -28,13 +28,14 @@ int kh_chaar(char c)
 */
 int kh_string(char *str)
 {
-	int i;
+	int i = 0;
 
 	if (!str)
 		return (kh_string("(null)"));
-	for (i = 0; str[i]; i++)
+	while (str[i])
 	{
 		kh_chaar(str[i]);
+		i++;
 	}
 	return (i);
 }
