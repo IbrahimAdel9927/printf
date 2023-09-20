@@ -19,5 +19,7 @@ int putch(char c);
 int putstr(char *str);
 int kh_binary(va_list **list);
 int kh_revstr(char *str);
+int uint_ma(unsigned int d, unsigned int a , unsigned int k);
+int kh_uint(va_list **list);
 
 #endif/*the_end*/

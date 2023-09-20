@@ -22,6 +22,8 @@ int option(char s, va_list *list)
 		coun += kh_binary(&list);
 	else if (s == 'r')
 		coun += kh_revstr(va_arg(*list, char *));
+	else if (s == 'u')
+		coun += kh_uint(&list);
 	return (coun);
 }
 
@@ -79,3 +81,53 @@ int kh_revstr(char *str)
 	return (coun);
 }
 
+/**
+ * kh_uint - print unsigned int
+ * @list: the input
+ * Return: int
+*/
+int kh_uint(va_list **list)
+{
+	unsigned int a = va_arg(**list, unsigned int);
+	unsigned int k = 0, d = 1000000000;
+	int i = 0;
+
+	if (a <= UINT_MAX)
+		i += uint_ma(d, a, k);
+	return (i);
+}
+
+/**
+ * uint_ma - help uint in the print
+ * @d: first input
+ * @a: second input
+ * @k: third input
+ * Return: int
+*/
+int uint_ma(unsigned int d, unsigned int a, unsigned int k)
+{
+	int i = 0;
+	char c = 48;
+
+	while (d)
+	{
+		if (k == 0)
+			k += a / d;
+		if (k > 0)
+		{
+			c += (int) ((a / d) % 10);
+			write(1, &c, 1);
+			i++;
+			c = 48;
+		}
+		if (d == 1)
+			break;
+		d /= 10;
+	}
+	if (k == 0 && a == 0)
+	{
+		write(1, "0", 1);
+		i++;
+	}
+	return (i);
+}
