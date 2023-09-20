@@ -105,3 +105,39 @@ int kh_HEX(va_list **list)
 	}
 }
 
+/**
+ * kh_rot13 - make the rot 13
+ * @str: the input
+ * Return: int
+*/
+int kh_rot13(char *str)
+{
+	int coun = 0, flag;
+
+	if (!str)
+		return (kh_string("(null)"));
+	while (str[coun])
+	{
+		if (str[coun] >= 65 && str[coun] <= 90)
+		{
+			flag = str[coun] + 13;
+			if (flag <= 90)
+				kh_chaar(flag);
+			else
+				kh_chaar(flag - 26);
+		}
+		else if (str[coun] >= 97 && str[coun] <= 122)
+		{
+			flag = str[coun] + 13;
+			if (flag <= 122)
+				kh_chaar(flag);
+			else
+				kh_chaar(flag - 26);
+		}
+		else
+			kh_chaar(str[coun]);
+		coun++;
+	}
+	return (coun);
+}
+
