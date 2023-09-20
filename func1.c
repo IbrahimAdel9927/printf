@@ -30,6 +30,8 @@ int option(char s, va_list *list)
 		coun += kh_hex(&list);
 	else if (s == 'X')
 		coun += kh_HEX(&list);
+	else if (s == 'R')
+		coun += kh_rot13(va_arg(*list, char *));
 	return (coun);
 }
 

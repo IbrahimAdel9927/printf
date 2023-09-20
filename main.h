@@ -24,5 +24,6 @@ int kh_uint(va_list **list);
 int kh_oct(va_list **list);
 int kh_hex(va_list **list);
 int kh_HEX(va_list **list);
+int kh_rot13(char *str);
 
 #endif/*the_end*/
